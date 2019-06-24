@@ -4,21 +4,23 @@ namespace App\Listeners;
 
 use App\Events\IdeaSubmitted;
 use App\Mail\IdeaSubmissionEmail;
-use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
 
 class SendIdeaSubmissionNotification
 {
-    protected $mailer;
 
 
-    public function __construct(Mailer $mailer)
+    public function __construct()
     {
-        $this->mailer = $mailer;
+        //
     }
 
 
     public function handle(IdeaSubmitted $event)
     {
-        $this->mailer->send(new IdeaSubmissionEmail($event->user, $event->idea));
+        logger('Sending mail    ::EventListener');
+        $user = $event->user;
+        $user->notify(new \App\Notifications\IdeaSubmitted($event->idea));
+
     }
 }
