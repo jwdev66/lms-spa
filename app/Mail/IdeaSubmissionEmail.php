@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class IdeaSubmissionEmail extends Mailable
+class IdeaSubmissionEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -23,6 +23,6 @@ class IdeaSubmissionEmail extends Mailable
 
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.ideaSubmission');
     }
 }
