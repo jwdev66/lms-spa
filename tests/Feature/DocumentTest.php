@@ -7,11 +7,7 @@ use Tests\TestCase;
 
 class DocumentTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+
     public function testIndexPageShows()
     {
         $response = $this->get(route('documents.index'));
