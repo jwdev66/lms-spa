@@ -8,15 +8,14 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false">
-    <testsuites>
-        <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
-        </testsuite>
 
-        <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
+
+    <testsuites>
+        <testsuite name="Browser Test Suite">
+            <directory suffix="Test.php">./tests/Browser</directory>
         </testsuite>
     </testsuites>
+
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
@@ -29,6 +28,5 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="MAIL_DRIVER" value="array"/>
-        <ini name="memory_limit" value="512M" />
     </php>
 </phpunit>
