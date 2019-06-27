@@ -2,6 +2,15 @@
 
 namespace Tests\Feature;
 
+use App\Idea;
+use App\Jobs\CrunchReports;
+use App\User;
+use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -27,7 +36,7 @@ class IdeaEventTest extends TestCase
     {
         Bus::fake();
 
-        // Perform order shipping...
+        $idea = Idea::findOrFail(1);
 
         Bus::assertDispatched(CrunchReports::class, function ($job) use ($idea) {
             return $job->idea->id === $idea->id;
@@ -45,13 +54,14 @@ class IdeaEventTest extends TestCase
         Event::fake();
 
         // Perform order shipping...
+        $idea = Idea::findOrFail(1);
 
         Event::assertDispatched(IdeaSubmitted::class, function ($e) use ($idea) {
             return $e->idea->id === $idea->id;
         });
 
         // Assert an event was dispatched twice...
-        Event::assertDispatched(IdeaSubmitted::class, 2);
+        Event::assertDispatched(IdeaSubmitted::class, 1);
 
         // Assert an event was not dispatched...
         // Event::assertNotDispatched(OrderFailedToShip::class);
@@ -70,6 +80,9 @@ class IdeaEventTest extends TestCase
         // Mail::assertQueued();
         // Mail::assertNotQueued();
 
+        $idea = Idea::findOrFail(1);
+        $user = User::findOrFail(1);
+
         Mail::assertSent(IdeaSubmissionEmail::class, function ($mail) use ($idea) {
             return $mail->idea->id === $idea->id;
         });
@@ -82,7 +95,7 @@ class IdeaEventTest extends TestCase
         });
 
         // Assert a mailable was sent twice...
-        Mail::assertSent(OrderShipped::class, 1);
+        Mail::assertSent(IdeaSubmissionEmail::class, 1);
 
         // Assert a mailable was not sent...
         // Mail::assertNotSent(AnotherMailable::class);
@@ -91,22 +104,23 @@ class IdeaEventTest extends TestCase
 
     public function testOrderShipping()
     {
-        Queue::fake();
+//        Queue::fake();
+//
+//        // Perform order shipping...
+//
+//        Queue::assertPushed(ShipOrder::class, function ($job) use ($order) {
+//            return $job->order->id === $order->id;
+//        });
+//
+//        // Assert a job was pushed to a given queue...
+//        Queue::assertPushedOn('queue-name', ShipOrder::class);
+//
+//        // Assert a job was pushed twice...
+//        Queue::assertPushed(ShipOrder::class, 2);
+//
+//        // Assert a job was not pushed...
+//        Queue::assertNotPushed(AnotherJob::class);
 
-        // Perform order shipping...
-
-        Queue::assertPushed(ShipOrder::class, function ($job) use ($order) {
-            return $job->order->id === $order->id;
-        });
-
-        // Assert a job was pushed to a given queue...
-        Queue::assertPushedOn('queue-name', ShipOrder::class);
-
-        // Assert a job was pushed twice...
-        Queue::assertPushed(ShipOrder::class, 2);
-
-        // Assert a job was not pushed...
-        Queue::assertNotPushed(AnotherJob::class);
     }
 
 
@@ -117,7 +131,7 @@ class IdeaEventTest extends TestCase
         $fileName = 'some-cool-document.pdf';
         $sizeInKilobytes = 1256;
 
-        $response = $this->json('POST', '/documents', [
+        $response = $this->post('POST', '/documents', [
             'document' => UploadedFile::fake()->create($fileName, $sizeInKilobytes)
         ]);
 
