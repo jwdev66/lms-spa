@@ -1,6 +1,6 @@
 <p align="center"> 
 
-![Alt text](resources\docs\logo.png) 
+![Alt text](https://github.com/alphaolomi/idea/raw/master/resources/docs/logo.png) 
 
 </p>
 
