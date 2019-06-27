@@ -1,8 +1,11 @@
-<p align="center"># IdeaMS 💡 </p>
+<p align="center"> 
+
+![Alt text](resources\docs\logo.png) 
+
+</p>
 
 [![Build Status](https://travis-ci.com/alphaolomi/idea.svg?branch=master)](https://travis-ci.com/alphaolomi/idea)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 
 IdeaMS is a laravel based information system for organising ideas with word pluralization.
 
