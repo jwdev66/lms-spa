@@ -1,7 +1,8 @@
-<p align="center"> 
-
-![Alt text](https://github.com/alphaolomi/idea/raw/master/resources/docs/logo.png) 
-
+<p align="center">
+    
+    <img src="https://github.com/alphaolomi/idea/raw/master/resources/docs/logo.png"
+     alt="Idea MS 💡"
+     style="float: center;" />
 </p>
 
 [![Build Status](https://travis-ci.com/alphaolomi/idea.svg?branch=master)](https://travis-ci.com/alphaolomi/idea)
