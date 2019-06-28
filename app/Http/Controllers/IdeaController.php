@@ -22,7 +22,12 @@ class IdeaController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $data = $request->only('title','description');
+        $data['user_id'] = auth()->id();
+
+        $idea = Idea::create($data);
+
+        return redirect(route('ideas.index'))->with('success','Idea created successfully.');
     }
 
     public function show(Idea $idea)
