@@ -1,21 +1,20 @@
 <?php
 
-namespace Tests\Browser\Pages\Admin;
+namespace Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Tests\Browser\Pages\Page;
 
-class Dashboard extends Page
+class HomePage extends Page
 {
 
     public function url()
     {
-        return '/dashboard';
+        return '/home';
     }
 
     public function assert(Browser $browser)
     {
-        $browser->assertPathIs($this->url());
+
     }
 
     public function elements()

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Dusk\Browser;
 use Tests\Browser\Pages\Page;
 
-class Login extends Page
+class LoginPage extends Page
 {
 
     public function url()

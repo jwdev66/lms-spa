@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Document;
 use Tests\TestCase;
 
-class DocumentTest extends TestCase
+class DocumentControllerTest extends TestCase
 {
 
     public function testIndexPageShows()
