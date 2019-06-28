@@ -11,8 +11,8 @@ class IdeaSubmissionEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    protected $user;
-    protected $idea;
+    public $user;
+    public $idea;
 
     public function __construct($user, $idea)
     {

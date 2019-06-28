@@ -18,9 +18,6 @@ class DocumentController extends Controller
 
     public function store(Request $request)
     {
-
-        $document = new Document;
-
         $file = $request->file('document');
         $fileName = date('u') . '-' . $file->getClientOriginalName();
 
@@ -29,11 +26,10 @@ class DocumentController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', 'Document not uploaded');
         }
-        $document->title = $request->title;
-        $document->file = $fileName;
-        $document->save();
 
-        // Call Event
+        $data = $request->only('title');
+        $data['file'] = $fileName;
+        Document::create($data);
 
         return back()->with('success', 'Document successfully added');
     }

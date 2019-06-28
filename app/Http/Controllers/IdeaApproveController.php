@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Events\IdeaApproved;
 use App\Idea;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class IdeaApproveController extends Controller
 {
     public function index(Request $request)
     {
-        $idea = Idea::findOrFail($request->id);
-        event(new IdeaApproved($idea));
+        $user = auth()->user();
+        $idea = Idea::findOrFail(2);
 
-        return 'Apprved';
+        event(new IdeaApproved($user, $idea));
+        Log::info('Event called');
+
+        return 'Idea 2 Approved';
     }
+
 }

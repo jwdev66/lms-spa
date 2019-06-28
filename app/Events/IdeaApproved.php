@@ -10,20 +10,17 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class IdeaApproved implements ShouldBroadcast
+class IdeaApproved
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $idea;
+    public $user;
 
-    public function __construct($idea)
+    public function __construct($user, $idea)
     {
+        $this->user = $user;
         $this->idea = $idea;
     }
 
-
-    public function broadcastOn()
-    {
-        return new PrivateChannel('App.Idea.'.$this->idea->id);
-    }
 }

@@ -25,15 +25,20 @@ import Echo from 'laravel-echo'
 
 window.Pusher = require('pusher-js');
 
+window.Pusher.logToConsole = true;
+
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    encrypted: true
+    authEndpoint: '/broadcasting/auth',
+    forceTLS: false
 });
 
 
-Echo.private(`App.Idea.${ideaId}`)
-    .listen('IdeaApproved', (e) => {
-        console.log(e.update);
-    })
+let userId = 5;
+// TODO:: Fiz the private listen channel
+window.Echo.private('App.User.' + userId)
+    .notification((notification) => {
+        // console.log(notification);
+    });
