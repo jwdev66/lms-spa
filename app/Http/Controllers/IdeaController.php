@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
- 
+
     public function index()
     {
-        //
+        $ideas = Idea::all();
+
+        return view('idea.index')->with('ideas',$ideas);
+
     }
 
 
@@ -26,8 +29,8 @@ class IdeaController extends Controller
     }
 
     public function show(Idea $idea)
-    {
-        //
+    {        
+        return view('idea.show')->with('idea',$idea);
     }
 
 
