@@ -15,6 +15,10 @@ use Faker\Generator as Faker;
 |
 */
 
+// $factory->state(App\User::class, 'admin', [
+//     'account_status' => 'delinquent',
+// ]);
+
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,

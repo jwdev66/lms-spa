@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\IdeaApproved;
+use App\Notifications\IdeaSubmitted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -19,6 +20,7 @@ class SendIdeaApprovedNotification implements ShouldQueue
     
     public function handle(IdeaApproved $event)
     {
-        //
+        // Trigger notification
+        $event->user->notify(new IdeaSubmitted($event->idea));
     }
 }
