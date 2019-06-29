@@ -12,6 +12,7 @@ install:
   - cp .env.testing .env
   - composer self-update
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - php artisan dusk
 
 before_script:
   - mysql -e 'create database testing;'
