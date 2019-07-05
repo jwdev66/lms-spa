@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Idea;
 use Illuminate\Http\Request;
+use App\Http\Requests\IdeaForm;
 
 class IdeaController extends Controller
 {
@@ -23,18 +24,18 @@ class IdeaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(IdeaForm $request)
     {
-        $data = $request->only('title','description');
-        $data['user_id'] = auth()->id();
+        $dataValidated = $request->validated();
+        $dataValidated['user_id'] = auth()->id();
 
-        $idea = Idea::create($data);
+        $idea = Idea::create($dataValidated);
 
         return redirect(route('ideas.index'))->with('success','Idea created successfully.');
     }
 
     public function show(Idea $idea)
-    {        
+    {
         return view('idea.show')->with('idea',$idea);
     }
 
