@@ -11,7 +11,7 @@ addons:
 install:
   - cp .env.testing .env
   - composer self-update
-  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - composer install --no-interaction --prefer-dist --no-suggest
   - php artisan dusk:chrome-driver
 
 before_script:
