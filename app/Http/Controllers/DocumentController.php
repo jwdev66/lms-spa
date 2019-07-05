@@ -12,7 +12,6 @@ class DocumentController extends Controller
     {
         $documents = Document::all();
         return view('documents.index')->with('documents', $documents);
-
     }
 
 
@@ -37,7 +36,14 @@ class DocumentController extends Controller
 
     public function show(Document $document)
     {
-        //
+        // Download a file
+        // return response()->download($pathToFile);
+        // return response()->download($pathToFile, $name, $headers);
+        // return response()->download($pathToFile)->deleteFileAfterSend(true);
+
+        // Open a file
+        // return response()->file($pathToFile);
+    // return response()->file($pathToFile, $headers);
     }
 
 
