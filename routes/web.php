@@ -7,6 +7,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/unsubscribe/{user}', function (Request $request) {
+    if (! $request->hasValidSignature()) {
+        abort(401);
+    }
+
+    return 'Not touced';
+    
+})->name('unsubscribe');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
