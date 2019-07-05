@@ -1,12 +1,12 @@
-@extends('layouts.base')
+@extends('layouts.index')
 
 @section('title', 'Dashboard')
 
-@section('content')
+{{-- @section('content')
     Welcome to your application dashboard!
-@endsection
+@endsection --}}
 
 @section('scripts')
     @parent
-    <script src="{{ asset('js/app1.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app1.js') }}" defer></script> --}}
 @endsection
