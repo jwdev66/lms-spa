@@ -11,4 +11,15 @@ class ReportController extends Controller
         $user = auth()->user();
         $this->dispatch(new \App\Jobs\CrunchReports($user));
     }
+
+    public function show(Request $request)
+    {
+        $user = auth()->user();
+
+        return URL::temporarySignedRoute(
+            'unsubscribe',
+            now()->addMinutes(30),
+            ['user' => $user->id]
+        );
+    }
 }
