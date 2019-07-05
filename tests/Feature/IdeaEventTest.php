@@ -42,12 +42,7 @@ class IdeaEventTest extends TestCase
             return $job->idea->id === $idea->id;
         });
 
-<<<<<<< Updated upstream
-        // Assert a job was not dispatched...
-        // Bus::assertNotDispatched(AnotherJob::class);
-=======
 //         Bus::assertNotDispatched(IdeaSubmitted::class);
->>>>>>> Stashed changes
     }
 
 
@@ -135,17 +130,12 @@ class IdeaEventTest extends TestCase
         $fileName = 'some-cool-document.pdf';
         $sizeInKilobytes = 1256;
 
-<<<<<<< Updated upstream
-        $response = $this->post('POST', '/documents', [
-            'document' => UploadedFile::fake()->create($fileName, $sizeInKilobytes)
-=======
         $file =UploadedFile::fake()->create($fileName, $sizeInKilobytes);
 
         $fileName = date('u') . '-' . $file->getClientOriginalName();
 
         $this->post('/documents', [
             'document' => $file
->>>>>>> Stashed changes
         ]);
 
         // Assert the file was stored...
