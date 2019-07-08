@@ -5,7 +5,10 @@
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained: yes"></a>
   <a href="https://travis-ci.com/alphaolomi/idea"><img src="https://travis-ci.com/alphaolomi/idea.svg?branch=master" alt="Build Status"></a>
+  <a href="https://github.styleci.io/repos/194079564"><img src="https://github.styleci.io/repos/194079564/shield?branch=master" alt="Style Status"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+
+  
 </p>
 
 ## Installation
