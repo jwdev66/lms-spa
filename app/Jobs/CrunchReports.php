@@ -9,7 +9,6 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-
 class CrunchReports implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -21,10 +20,8 @@ class CrunchReports implements ShouldQueue
         $this->user = $user;
     }
 
-
     public function handle()
     {
-        Log::info('Generated reports. for' . $this->user->name);
-
+        Log::info('Generated reports. for'.$this->user->name);
     }
 }

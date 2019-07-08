@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Idea;
+use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
     public function index(Request $request)
     {
         $limit = $request->input('limit') ?? 15;
+
         return Idea::paginate($limit);
     }
 
     public function store(Request $request)
     {
-        $data = $request->only('title','description');
+        $data = $request->only('title', 'description');
         $data['user_id'] = auth()->user()->id;
         $idea = Idea::create($data);
 
         return $idea;
-
     }
 
     public function show($id)
@@ -31,7 +31,7 @@ class IdeaController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->only('title','description');
+        $data = $request->only('title', 'description');
         $data['user_id'] = auth()->user()->id;
         $idea = Idea::update($data);
 
@@ -40,8 +40,9 @@ class IdeaController extends Controller
 
     public function destroy($id)
     {
-        $idea  = Idea::findOrFail($id);
+        $idea = Idea::findOrFail($id);
         $idea->delete();
+
         return '';
     }
 }

@@ -14,5 +14,4 @@ class IdeaPageTest extends DuskTestCase
                 ->createIdea();
         });
     }
-
 }

@@ -15,8 +15,6 @@ class SubmitController extends Controller
 
         event(new IdeaSubmitted($user, $idea));
 
-        return 'Idea '. $idea->description .'submitted!!';
+        return 'Idea '.$idea->description.'submitted!!';
     }
-
-
 }

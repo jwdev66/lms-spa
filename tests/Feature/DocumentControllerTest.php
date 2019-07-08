@@ -7,7 +7,6 @@ use Tests\TestCase;
 
 class DocumentControllerTest extends TestCase
 {
-
     public function testIndexPageShows()
     {
         $response = $this->get(route('documents.index'));
@@ -19,7 +18,7 @@ class DocumentControllerTest extends TestCase
     {
         $data = [
             'title' => 'Cool',
-            'file' => '1234-filename.txt'
+            'file'  => '1234-filename.txt',
         ];
 
         $document = Document::create($data);
@@ -27,6 +26,5 @@ class DocumentControllerTest extends TestCase
         $this->get(route('documents.index'))
             ->assertSee($data['title'])
             ->assertSee($data['file']);
-
     }
 }

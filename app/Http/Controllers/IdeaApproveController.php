@@ -19,5 +19,4 @@ class IdeaApproveController extends Controller
 
         return 'Idea 2 Approved';
     }
-
 }

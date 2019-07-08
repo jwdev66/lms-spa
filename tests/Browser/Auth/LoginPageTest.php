@@ -14,5 +14,4 @@ class LoginPageTest extends DuskTestCase
                 ->testLogin();
         });
     }
-
 }

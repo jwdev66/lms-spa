@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Events\IdeaSubmitted;
 use App\Idea;
 use App\Jobs\CrunchReports;
+use App\Mail\IdeaSubmissionEmail;
 use App\User;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Event;
@@ -12,10 +14,6 @@ use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Events\IdeaSubmitted;
-use App\Mail\IdeaSubmissionEmail;
 
 class IdeaEventTest extends TestCase
 {
@@ -31,7 +29,7 @@ class IdeaEventTest extends TestCase
         $response->assertStatus(200);
     }
 
-// Bus Fake
+    // Bus Fake
     public function testCrunchReportJob()
     {
         Bus::fake();
@@ -44,8 +42,6 @@ class IdeaEventTest extends TestCase
 
 //         Bus::assertNotDispatched(IdeaSubmitted::class);
     }
-
-
 
     // Event Fake
     public function testIdeaSubmittedEvent()
@@ -66,9 +62,7 @@ class IdeaEventTest extends TestCase
         // Event::assertNotDispatched(OrderFailedToShip::class);
     }
 
-
     // Mail Fake
-
 
     public function testIdeaSubmissionEMail()
     {
@@ -88,8 +82,8 @@ class IdeaEventTest extends TestCase
 
         // Assert a message was sent to the given users...
         Mail::assertSent(IdeaSubmissionEmail::class, function ($mail) use ($user) {
-            return $mail->hasTo($user->email) ;
-                    // && $mail->hasCc('...') &&
+            return $mail->hasTo($user->email);
+            // && $mail->hasCc('...') &&
                 //    $mail->hasBcc('...');
         });
 
@@ -99,7 +93,6 @@ class IdeaEventTest extends TestCase
         // Assert a mailable was not sent...
         // Mail::assertNotSent(AnotherMailable::class);
     }
-
 
     public function testOrderShipping()
     {
@@ -119,9 +112,7 @@ class IdeaEventTest extends TestCase
 //
 //        // Assert a job was not pushed...
 //        Queue::assertNotPushed(AnotherJob::class);
-
     }
-
 
     public function testDocumentUpload()
     {
@@ -130,12 +121,12 @@ class IdeaEventTest extends TestCase
         $fileName = 'some-cool-document.pdf';
         $sizeInKilobytes = 1256;
 
-        $file =UploadedFile::fake()->create($fileName, $sizeInKilobytes);
+        $file = UploadedFile::fake()->create($fileName, $sizeInKilobytes);
 
-        $fileName = date('u') . '-' . $file->getClientOriginalName();
+        $fileName = date('u').'-'.$file->getClientOriginalName();
 
         $this->post('/documents', [
-            'document' => $file
+            'document' => $file,
         ]);
 
         // Assert the file was stored...
@@ -144,7 +135,4 @@ class IdeaEventTest extends TestCase
         // Assert a file does not exist...
         Storage::disk('documents')->assertMissing('missing.pdf');
     }
-
-
-
 }

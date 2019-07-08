@@ -4,9 +4,8 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\BroadcastMessage;
-use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class IdeaSubmitted extends Notification
 {
@@ -21,14 +20,14 @@ class IdeaSubmitted extends Notification
 
     public function via($notifiable)
     {
-        return ['database','broadcast'];
+        return ['database', 'broadcast'];
 //        return ['mail'];
 //        return $notifiable->preferredNotificationChannels();
     }
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
                     ->line('Alpha has submitted an idea.')
                     ->action('Check it out', url('/'))
                     ->line('Thank you for using our application!');
@@ -37,19 +36,18 @@ class IdeaSubmitted extends Notification
     public function toArray($notifiable)
     {
         return [
-            'id'=> $this->idea->id,
-            'title' => $this->idea->title,
-            'description' => $this->idea->description
+            'id'          => $this->idea->id,
+            'title'       => $this->idea->title,
+            'description' => $this->idea->description,
         ];
     }
 
     public function toBroadcast($notifiable)
     {
         return new BroadcastMessage([
-            'id' => $this->idea->id,
-            'title' => $this->idea->title,
-            'description' => $this->idea->description
+            'id'          => $this->idea->id,
+            'title'       => $this->idea->title,
+            'description' => $this->idea->description,
         ]);
     }
-
 }

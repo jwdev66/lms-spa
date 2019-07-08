@@ -11,6 +11,5 @@ class IdeaControllerTest extends TestCase
         $idea = factory(\App\Idea::class)->make();
 
         $this->assertTrue(true);
-
     }
 }

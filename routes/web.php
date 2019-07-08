@@ -7,14 +7,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/unsubscribe/{user}', function (Request $request) {
-    if (! $request->hasValidSignature()) {
+    if (!$request->hasValidSignature()) {
         abort(401);
     }
 
     return 'Not touced';
-    
 })->name('unsubscribe');
 
 Auth::routes();
@@ -29,8 +27,6 @@ Route::get('/submit/{id}', 'SubmitController@store')->name('submitIdea');
 
 Route::resource('/documents', 'DocumentController');
 
-
 Route::resource('/ideas', 'IdeaController');
-
 
 Route::get('/approve', 'IdeaApproveController@index')->name('approve');
