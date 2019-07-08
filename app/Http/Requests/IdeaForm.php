@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class IdeaForm extends FormRequest
 {
-
     public function authorize()
     {
         // $comment = Comment::find($this->route('comment'));
@@ -14,20 +13,19 @@ class IdeaForm extends FormRequest
         return false;
     }
 
-
     public function rules()
     {
         return [
             'title' => 'required|unique:ideas|max:255',
-            'body' => 'required',
+            'body'  => 'required',
         ];
     }
 
     public function messages()
-{
-    return [
+    {
+        return [
         // 'title.required' => 'A title is required',
         // 'body.required'  => 'A message is required',
     ];
-}
+    }
 }

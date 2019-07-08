@@ -10,9 +10,8 @@ class DashboardPageTest extends DuskTestCase
     public function testCreateDashBoard()
     {
         $this->browse(static function ($browser) {
-            $browser->visit(new DashboardPage)
+            $browser->visit(new DashboardPage())
                 ->createDashBoard();
         });
     }
-
 }

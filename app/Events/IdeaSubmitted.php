@@ -18,5 +18,4 @@ class IdeaSubmitted
         $this->user = $user;
         $this->idea = $idea;
     }
-
 }

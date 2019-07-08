@@ -6,7 +6,6 @@ use Laravel\Dusk\Browser;
 
 class HomePage extends Page
 {
-
     public function url()
     {
         return '/home';
@@ -14,7 +13,6 @@ class HomePage extends Page
 
     public function assert(Browser $browser)
     {
-
     }
 
     public function elements()

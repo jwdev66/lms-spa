@@ -2,14 +2,13 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Idea;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class IdeaPolicy
 {
     use HandlesAuthorization;
-
 
     public function before($user, $ability)
     {
@@ -18,24 +17,20 @@ class IdeaPolicy
         // }
     }
 
-
     public function view(User $user, Idea $idea)
     {
         return $user->id === $idea->user_id;
     }
-
 
     public function create(User $user)
     {
         //
     }
 
-
     public function update(User $user, Idea $idea)
     {
         //
     }
-
 
     public function delete(User $user, Idea $idea)
     {

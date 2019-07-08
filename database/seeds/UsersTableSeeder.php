@@ -11,33 +11,27 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
-
         factory(App\User::class, 1)
            ->create()
            ->each(function ($u) {
-                $adminRole = App\Role::where('name', 'admin')->first();
-                $u->roles()->save( $adminRole);
-            });
-
-
+               $adminRole = App\Role::where('name', 'admin')->first();
+               $u->roles()->save($adminRole);
+           });
 
         factory(App\User::class, 3)
             ->create()
             ->each(function ($u) {
                 $investigatorRole = App\Role::where('name', 'investigator')->first();
-                 $u->roles()->save($investigatorRole );
-             });
+                $u->roles()->save($investigatorRole);
+            });
 
         DB::table('users')->insert([
-            'name' => str_random(10),
-            'email' => 'admin@gmail.com',
+            'name'     => str_random(10),
+            'email'    => 'admin@gmail.com',
             'password' => bcrypt('qazplm123'),
         ]);
         $user = App\User::where('email', 'admin@gmail.com')->first();
         $role = App\Role::where('name', 'investigator')->first();
         $user->roles()->save($role);
-
-
     }
 }
