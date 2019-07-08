@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/unsubscribe/{user}', function (Request $request) {
-    if (!$request->hasValidSignature()) {
+    if (! $request->hasValidSignature()) {
         abort(401);
     }
 
