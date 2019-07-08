@@ -7,11 +7,10 @@ use Tests\TestCase;
 
 class IdeaTest extends TestCase
 {
-
     public function testCreateBranch()
     {
         $data = [
-            'title' => 'some title',
+            'title'       => 'some title',
             'description' => 'some description',
         ];
         $idea = new Idea($data);

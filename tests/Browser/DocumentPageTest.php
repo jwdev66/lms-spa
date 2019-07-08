@@ -10,9 +10,8 @@ class DocumentPageTest extends DuskTestCase
     public function testCreateDocument()
     {
         $this->browse(static function ($browser) {
-            $browser->visit(new DocumentPage)
+            $browser->visit(new DocumentPage())
                 ->createDocument();
         });
     }
-
 }

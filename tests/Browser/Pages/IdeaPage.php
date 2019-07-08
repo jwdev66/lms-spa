@@ -7,7 +7,6 @@ use Laravel\Dusk\Browser;
 
 class IdeaPage extends Page
 {
-
     public function url()
     {
         return '/ideas';
@@ -15,7 +14,6 @@ class IdeaPage extends Page
 
     public function createIdea(Browser $browser)
     {
-
         $user = User::findOrFail(1);
 
         $browser->loginAs($user)
@@ -32,7 +30,6 @@ class IdeaPage extends Page
 //                $modal->press('Submit');
 //            })
 //            ->assertSee('Idea created successfully.');
-
     }
 
     public function elements()

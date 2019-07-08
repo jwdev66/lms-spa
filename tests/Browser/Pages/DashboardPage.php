@@ -3,11 +3,9 @@
 namespace Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Tests\Browser\Pages\Page;
 
 class DashboardPage extends Page
 {
-
     public function url()
     {
         return '/dashboard';

@@ -7,18 +7,17 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-
     public function index()
     {
         $documents = Document::all();
+
         return view('documents.index')->with('documents', $documents);
     }
-
 
     public function store(Request $request)
     {
         $file = $request->file('document');
-        $fileName = date('u') . '-' . $file->getClientOriginalName();
+        $fileName = date('u').'-'.$file->getClientOriginalName();
 
         try {
             $file->storeAs('public/documents', $fileName);
@@ -33,7 +32,6 @@ class DocumentController extends Controller
         return back()->with('success', 'Document successfully added');
     }
 
-
     public function show(Document $document)
     {
         // Download a file
@@ -46,12 +44,10 @@ class DocumentController extends Controller
     // return response()->file($pathToFile, $headers);
     }
 
-
     public function update(Request $request, Document $document)
     {
         //
     }
-
 
     public function destroy(Document $document)
     {
