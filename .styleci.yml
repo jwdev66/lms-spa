@@ -6,11 +6,14 @@ php:
     - length_ordered_imports
     - unused_use
   finder:
+    exclude:
+      - "tests"
+      - "node_modules"
+      - "storage"
+      - "vendor"
     not-name:
+      - "AcceptanceTester.php"
+      - "FunctionalTester.php"
+      - "UnitTester.php"
       - index.php
       - server.php
-js:
-  finder:
-    not-name:
-      - webpack.mix.js
-css: true
