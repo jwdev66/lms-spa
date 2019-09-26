@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\API\Idea;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\Idea\CreateIdeaAPIRequest;
 use App\Http\Requests\API\Idea\UpdateIdeaAPIRequest;
 use App\Models\Idea\Idea;
 use App\Repositories\Idea\IdeaRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class IdeaController
  * @package App\Http\Controllers\API\Idea
  */
-
 class IdeaAPIController extends AppBaseController
 {
     /** @var  IdeaRepository */

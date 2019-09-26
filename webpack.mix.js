@@ -12,8 +12,8 @@ mix
 
 if (mix.inProduction()) {
   mix
-    // .extract() // Disabled until resolved: https://github.com/JeffreyWay/laravel-mix/issues/1889
-    // .version() // Use `laravel-mix-versionhash` for the generating correct Laravel Mix manifest file.
+  // .extract() // Disabled until resolved: https://github.com/JeffreyWay/laravel-mix/issues/1889
+  // .version() // Use `laravel-mix-versionhash` for the generating correct Laravel Mix manifest file.
     .versionHash()
 } else {
   mix.sourceMaps()
@@ -41,7 +41,7 @@ mix.then(() => {
   }
 })
 
-function publishAseets () {
+function publishAseets() {
   const publicDir = path.resolve(__dirname, './public')
 
   if (mix.inProduction()) {

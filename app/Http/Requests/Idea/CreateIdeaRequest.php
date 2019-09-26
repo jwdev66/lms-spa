@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Idea;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Idea\Idea;
+use Illuminate\Foundation\Http\FormRequest;
 
 class CreateIdeaRequest extends FormRequest
 {

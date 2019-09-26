@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Exceptions\VerifyEmailException;
+use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -24,21 +24,32 @@ class LoginController extends Controller
     }
 
     /**
+     * Log the user out of the application.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+    }
+
+    /**
      * Attempt to log the user into the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return bool
      */
     protected function attemptLogin(Request $request)
     {
         $token = $this->guard()->attempt($this->credentials($request));
 
-        if (! $token) {
+        if (!$token) {
             return false;
         }
 
         $user = $this->guard()->user();
-        if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
+        if ($user instanceof MustVerifyEmail && !$user->hasVerifiedEmail()) {
             return false;
         }
 
@@ -50,14 +61,14 @@ class LoginController extends Controller
     /**
      * Send the response after the user was authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     protected function sendLoginResponse(Request $request)
     {
         $this->clearLoginAttempts($request);
 
-        $token = (string) $this->guard()->getToken();
+        $token = (string)$this->guard()->getToken();
         $expiration = $this->guard()->getPayload()->get('exp');
 
         return response()->json([
@@ -70,7 +81,7 @@ class LoginController extends Controller
     /**
      * Get the failed login response instance.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -78,23 +89,12 @@ class LoginController extends Controller
     protected function sendFailedLoginResponse(Request $request)
     {
         $user = $this->guard()->user();
-        if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
+        if ($user instanceof MustVerifyEmail && !$user->hasVerifiedEmail()) {
             throw VerifyEmailException::forUser($user);
         }
 
         throw ValidationException::withMessages([
             $this->username() => [trans('auth.failed')],
         ]);
-    }
-
-    /**
-     * Log the user out of the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function logout(Request $request)
-    {
-        $this->guard()->logout();
     }
 }

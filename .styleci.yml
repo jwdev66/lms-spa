@@ -3,7 +3,7 @@ enabled:
   - alpha_ordered_imports
 disabled:
   - length_ordered_imports
-  - unused_use  
+  - unused_use
 finder:
   exclude:
     - "tests"

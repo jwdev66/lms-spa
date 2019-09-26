@@ -1,10 +1,10 @@
 <?php namespace Tests\APIs;
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tests\TestCase;
-use Tests\ApiTestTrait;
 use App\Models\User\Avatar;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\ApiTestTrait;
+use Tests\TestCase;
 
 class AvatarApiTest extends TestCase
 {
@@ -34,7 +34,7 @@ class AvatarApiTest extends TestCase
 
         $this->response = $this->json(
             'GET',
-            '/api/user/avatars/'.$avatar->id
+            '/api/user/avatars/' . $avatar->id
         );
 
         $this->assertApiResponse($avatar->toArray());
@@ -50,7 +50,7 @@ class AvatarApiTest extends TestCase
 
         $this->response = $this->json(
             'PUT',
-            '/api/user/avatars/'.$avatar->id,
+            '/api/user/avatars/' . $avatar->id,
             $editedAvatar
         );
 
@@ -66,13 +66,13 @@ class AvatarApiTest extends TestCase
 
         $this->response = $this->json(
             'DELETE',
-             '/api/user/avatars/'.$avatar->id
-         );
+            '/api/user/avatars/' . $avatar->id
+        );
 
         $this->assertApiSuccess();
         $this->response = $this->json(
             'GET',
-            '/api/user/avatars/'.$avatar->id
+            '/api/user/avatars/' . $avatar->id
         );
 
         $this->response->assertStatus(404);

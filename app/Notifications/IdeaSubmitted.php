@@ -28,16 +28,16 @@ class IdeaSubmitted extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage())
-                    ->line('Alpha has submitted an idea.')
-                    ->action('Check it out', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('Alpha has submitted an idea.')
+            ->action('Check it out', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     public function toArray($notifiable)
     {
         return [
-            'id'          => $this->idea->id,
-            'title'       => $this->idea->title,
+            'id' => $this->idea->id,
+            'title' => $this->idea->title,
             'description' => $this->idea->description,
         ];
     }
@@ -45,8 +45,8 @@ class IdeaSubmitted extends Notification
     public function toBroadcast($notifiable)
     {
         return new BroadcastMessage([
-            'id'          => $this->idea->id,
-            'title'       => $this->idea->title,
+            'id' => $this->idea->id,
+            'title' => $this->idea->title,
             'description' => $this->idea->description,
         ]);
     }

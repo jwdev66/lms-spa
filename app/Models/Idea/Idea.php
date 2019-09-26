@@ -64,12 +64,19 @@ class Idea extends Model
 {
     use SoftDeletes;
 
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'title' => 'required',
+        'description' => 'required',
+        'type' => 'categories enum,Sun,Mon,Tue select,Sun,Mon,Tue',
+        'slug' => 'required',
+        'categories' => 'required'
+    ];
     public $table = 'ideas';
-    
-
-    protected $dates = ['deleted_at'];
-
-
     public $fillable = [
         'user_id',
         'title',
@@ -78,7 +85,7 @@ class Idea extends Model
         'slug',
         'categories'
     ];
-
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that should be casted to native types.
      *
@@ -94,18 +101,5 @@ class Idea extends Model
         'categories' => 'string'
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-        'title' => 'required',
-        'description' => 'required',
-        'type' => 'categories enum,Sun,Mon,Tue select,Sun,Mon,Tue',
-        'slug' => 'required',
-        'categories' => 'required'
-    ];
 
-    
 }

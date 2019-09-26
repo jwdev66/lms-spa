@@ -3,8 +3,8 @@
 use App\Models\User\Avatar;
 use App\Repositories\User\AvatarRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tests\TestCase;
 use Tests\ApiTestTrait;
+use Tests\TestCase;
 
 class AvatarRepositoryTest extends TestCase
 {
@@ -15,7 +15,7 @@ class AvatarRepositoryTest extends TestCase
      */
     protected $avatarRepo;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
         $this->avatarRepo = \App::make(AvatarRepository::class);

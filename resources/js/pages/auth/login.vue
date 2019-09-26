@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-lg-8 m-auto">
       <card :title="$t('login')">
-        <form @submit.prevent="login" @keydown="form.onKeydown($event)">
+        <form @keydown="form.onKeydown($event)" @submit.prevent="login">
           <!-- Email -->
           <div class="form-group row">
             <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
             <div class="col-md-7">
-              <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
-              <has-error :form="form" field="email" />
+              <input :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" name="email"
+                     type="email" v-model="form.email">
+              <has-error :form="form" field="email"/>
             </div>
           </div>
 
@@ -16,16 +17,17 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
             <div class="col-md-7">
-              <input v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" type="password" name="password">
-              <has-error :form="form" field="password" />
+              <input :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" name="password"
+                     type="password" v-model="form.password">
+              <has-error :form="form" field="password"/>
             </div>
           </div>
 
           <!-- Remember Me -->
           <div class="form-group row">
-            <div class="col-md-3" />
+            <div class="col-md-3"/>
             <div class="col-md-7 d-flex">
-              <checkbox v-model="remember" name="remember">
+              <checkbox name="remember" v-model="remember">
                 {{ $t('remember_me') }}
               </checkbox>
 
@@ -43,7 +45,7 @@
               </v-button>
 
               <!-- GitHub Login Button -->
-              <login-with-github />
+              <login-with-github/>
             </div>
           </div>
         </form>
@@ -53,45 +55,45 @@
 </template>
 
 <script>
-import Form from 'vform'
-import LoginWithGithub from '~/components/LoginWithGithub'
+    import Form from 'vform'
+    import LoginWithGithub from '~/components/LoginWithGithub'
 
-export default {
-  middleware: 'guest',
+    export default {
+        middleware: 'guest',
 
-  components: {
-    LoginWithGithub
-  },
+        components: {
+            LoginWithGithub
+        },
 
-  metaInfo () {
-    return { title: this.$t('login') }
-  },
+        metaInfo() {
+            return {title: this.$t('login')}
+        },
 
-  data: () => ({
-    form: new Form({
-      email: '',
-      password: ''
-    }),
-    remember: false
-  }),
+        data: () => ({
+            form: new Form({
+                email: '',
+                password: ''
+            }),
+            remember: false
+        }),
 
-  methods: {
-    async login () {
-      // Submit the form.
-      const { data } = await this.form.post('/api/login')
+        methods: {
+            async login() {
+                // Submit the form.
+                const {data} = await this.form.post('/api/login')
 
-      // Save the token.
-      this.$store.dispatch('auth/saveToken', {
-        token: data.token,
-        remember: this.remember
-      })
+                // Save the token.
+                this.$store.dispatch('auth/saveToken', {
+                    token: data.token,
+                    remember: this.remember
+                })
 
-      // Fetch the user.
-      await this.$store.dispatch('auth/fetchUser')
+                // Fetch the user.
+                await this.$store.dispatch('auth/fetchUser')
 
-      // Redirect home.
-      this.$router.push({ name: 'home' })
+                // Redirect home.
+                this.$router.push({name: 'home'})
+            }
+        }
     }
-  }
-}
 </script>

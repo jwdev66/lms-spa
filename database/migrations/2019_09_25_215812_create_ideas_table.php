@@ -18,9 +18,9 @@ class CreateIdeasTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->text('description');
-            $table->enum('type', ['Sun','Mon','Tue']);
+            $table->enum('type', ['Sun', 'Mon', 'Tue']);
             $table->text('slug');
-            $table->enum('categories', ['Sun','Mon','Tue']);
+            $table->enum('categories', ['Sun', 'Mon', 'Tue']);
             $table->timestamps();
             $table->softDeletes();
         });

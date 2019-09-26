@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use App\Http\Controllers\Controller;
-use Illuminate\Auth\Events\Verified;
 use Illuminate\Validation\ValidationException;
 
 class VerificationController extends Controller
@@ -24,13 +24,13 @@ class VerificationController extends Controller
     /**
      * Mark the user's email address as verified.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\User $user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\User $user
      * @return \Illuminate\Http\JsonResponse
      */
     public function verify(Request $request, User $user)
     {
-        if (! URL::hasValidSignature($request)) {
+        if (!URL::hasValidSignature($request)) {
             return response()->json([
                 'status' => trans('verification.invalid'),
             ], 400);
@@ -54,7 +54,7 @@ class VerificationController extends Controller
     /**
      * Resend the email verification notification.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function resend(Request $request)

@@ -1,10 +1,10 @@
 <?php namespace Tests\APIs;
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tests\TestCase;
-use Tests\ApiTestTrait;
 use App\Models\Idea\Idea;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\ApiTestTrait;
+use Tests\TestCase;
 
 class IdeaApiTest extends TestCase
 {
@@ -34,7 +34,7 @@ class IdeaApiTest extends TestCase
 
         $this->response = $this->json(
             'GET',
-            '/api/idea/ideas/'.$idea->id
+            '/api/idea/ideas/' . $idea->id
         );
 
         $this->assertApiResponse($idea->toArray());
@@ -50,7 +50,7 @@ class IdeaApiTest extends TestCase
 
         $this->response = $this->json(
             'PUT',
-            '/api/idea/ideas/'.$idea->id,
+            '/api/idea/ideas/' . $idea->id,
             $editedIdea
         );
 
@@ -66,13 +66,13 @@ class IdeaApiTest extends TestCase
 
         $this->response = $this->json(
             'DELETE',
-             '/api/idea/ideas/'.$idea->id
-         );
+            '/api/idea/ideas/' . $idea->id
+        );
 
         $this->assertApiSuccess();
         $this->response = $this->json(
             'GET',
-            '/api/idea/ideas/'.$idea->id
+            '/api/idea/ideas/' . $idea->id
         );
 
         $this->response->assertStatus(404);

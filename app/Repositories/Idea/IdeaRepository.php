@@ -9,8 +9,7 @@ use App\Repositories\BaseRepository;
  * Class IdeaRepository
  * @package App\Repositories\Idea
  * @version September 25, 2019, 9:58 pm UTC
-*/
-
+ */
 class IdeaRepository extends BaseRepository
 {
     /**

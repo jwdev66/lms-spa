@@ -3,8 +3,8 @@
 use App\Models\Idea\Idea;
 use App\Repositories\Idea\IdeaRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tests\TestCase;
 use Tests\ApiTestTrait;
+use Tests\TestCase;
 
 class IdeaRepositoryTest extends TestCase
 {
@@ -15,7 +15,7 @@ class IdeaRepositoryTest extends TestCase
      */
     protected $ideaRepo;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
         $this->ideaRepo = \App::make(IdeaRepository::class);

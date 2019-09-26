@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers\API\User;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\User\CreateAvatarAPIRequest;
 use App\Http\Requests\API\User\UpdateAvatarAPIRequest;
 use App\Models\User\Avatar;
 use App\Repositories\User\AvatarRepository;
-use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class AvatarController
  * @package App\Http\Controllers\API\User
  */
-
 class AvatarAPIController extends AppBaseController
 {
     /** @var  AvatarRepository */

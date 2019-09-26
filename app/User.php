@@ -2,16 +2,16 @@
 
 namespace App;
 
-use App\Notifications\VerifyEmail;
 use App\Notifications\ResetPassword;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Notifications\VerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends Authenticatable implements HasMedia, JWTSubject //, MustVerifyEmail
 {
@@ -62,7 +62,7 @@ class User extends Authenticatable implements HasMedia, JWTSubject //, MustVerif
      */
     public function getPhotoUrlAttribute()
     {
-        return 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'.jpg?s=200&d=mm';
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '.jpg?s=200&d=mm';
     }
 
     /**
@@ -78,7 +78,7 @@ class User extends Authenticatable implements HasMedia, JWTSubject //, MustVerif
     /**
      * Send the password reset notification.
      *
-     * @param  string  $token
+     * @param string $token
      * @return void
      */
     public function sendPasswordResetNotification($token)
