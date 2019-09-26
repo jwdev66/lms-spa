@@ -1,19 +1,20 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Models\Idea\Idea;
 use Faker\Generator as Faker;
 
-$factory->define(\App\Idea::class, function (Faker $faker) {
-    return [
-        'title'       => $faker->title,
-        'description' => $faker->paragraph(1),
-        'user_id'     => function () {
-            $user = factory(App\User::class)->create();
-            $role = App\Role::where('name', 'investigator')->first();
-            $user->roles()->save($role);
+$factory->define(Idea::class, function (Faker $faker) {
 
-            return $user->id;
-        },
+    return [
+        'user_id' => $faker->randomDigitNotNull,
+        'title' => $faker->word,
+        'description' => $faker->text,
+        'type' => $faker->randomElement(['Sun', 'Mon', 'Tue']),
+        'slug' => $faker->text,
+        'categories' => $faker->randomElement(['Sun', 'Mon', 'Tue']),
+        'created_at' => $faker->date('Y-m-d H:i:s'),
+        'updated_at' => $faker->date('Y-m-d H:i:s')
     ];
 });
