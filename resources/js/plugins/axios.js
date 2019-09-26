@@ -23,7 +23,7 @@ axios.interceptors.request.use(request => {
 
 // Response interceptor
 axios.interceptors.response.use(response => response, error => {
-  const {status} = error.response
+  const { status } = error.response
 
   if (status >= 500) {
     Swal.fire({
@@ -47,7 +47,7 @@ axios.interceptors.response.use(response => response, error => {
     }).then(() => {
       store.commit('auth/LOGOUT')
 
-      router.push({name: 'login'})
+      router.push({ name: 'login' })
     })
   }
 
