@@ -1,6 +1,9 @@
 <template>
-  <card :title="$t('home')">
-    {{ $t('you_are_logged_in') }}
+  <card :title="$t('ideas')">
+    {{ $t('failed_to_verify_email') }}
+
+
+    
   </card>
 </template>
 
