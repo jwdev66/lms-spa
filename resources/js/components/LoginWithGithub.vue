@@ -51,6 +51,10 @@
     }
 
     /**
+     * @param url
+     * @param title
+     * @param url
+     * @param title
      * @param  {Object} options
      * @return {Window}
      */

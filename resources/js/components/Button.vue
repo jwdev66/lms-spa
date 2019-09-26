@@ -6,39 +6,39 @@
     'btn-loading': loading
   }" :disabled="loading" :type="nativeType" class="btn"
   >
-    <slot/>
+    <slot />
   </button>
 </template>
 
 <script>
-    export default {
-        name: 'VButton',
+export default {
+  name: 'VButton',
 
-        props: {
-            type: {
-                type: String,
-                default: 'primary'
-            },
+  props: {
+    type: {
+      type: String,
+      default: 'primary'
+    },
 
-            nativeType: {
-                type: String,
-                default: 'submit'
-            },
+    nativeType: {
+      type: String,
+      default: 'submit'
+    },
 
-            loading: {
-                type: Boolean,
-                default: false
-            },
+    loading: {
+      type: Boolean,
+      default: false
+    },
 
-            block: {
-                type: Boolean,
-                default: false
-            },
+    block: {
+      type: Boolean,
+      default: false
+    },
 
-            large: {
-                type: Boolean,
-                default: false
-            }
-        }
+    large: {
+      type: Boolean,
+      default: false
     }
+  }
+}
 </script>
