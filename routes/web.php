@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
+
 Route::get('{path}', function () {
     return view('index');
 })->where('path', '(.*)');
+
+
