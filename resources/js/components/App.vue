@@ -50,10 +50,10 @@ export default {
 
   methods: {
     /**
-             * Set the application layout.
-             *
-             * @param {String} layout
-             */
+    * Set the application layout.
+    *
+    * @param {String} layout
+    */
     setLayout (layout) {
       if (!layout || !layouts[layout]) {
         layout = this.defaultLayout
