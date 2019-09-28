@@ -6,13 +6,14 @@
       </router-link>
 
       <button aria-controls="navbarToggler" aria-expanded="false" class="navbar-toggler" data-target="#navbarToggler"
-              data-toggle="collapse" type="button">
-        <span class="navbar-toggler-icon"/>
+              data-toggle="collapse" type="button"
+      >
+        <span class="navbar-toggler-icon" />
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarToggler">
+      <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <locale-dropdown/>
+          <locale-dropdown />
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li> -->
@@ -20,22 +21,23 @@
 
         <ul class="navbar-nav ml-auto">
           <!-- Authenticated -->
-          <li class="nav-item dropdown" v-if="user">
+          <li v-if="user" class="nav-item dropdown">
             <a aria-expanded="false"
-               aria-haspopup="true" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="true" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#"
+               role="button"
             >
               <img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
               {{ user.name }}
             </a>
             <div class="dropdown-menu">
               <router-link :to="{ name: 'settings.profile' }" class="dropdown-item pl-3">
-                <fa fixed-width icon="cog"/>
+                <fa fixed-width icon="cog" />
                 {{ $t('settings') }}
               </router-link>
 
-              <div class="dropdown-divider"/>
-              <a @click.prevent="logout" class="dropdown-item pl-3" href="#">
-                <fa fixed-width icon="sign-out-alt"/>
+              <div class="dropdown-divider" />
+              <a class="dropdown-item pl-3" href="#" @click.prevent="logout">
+                <fa fixed-width icon="sign-out-alt" />
                 {{ $t('logout') }}
               </a>
             </div>
@@ -60,32 +62,32 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
-    import LocaleDropdown from './LocaleDropdown'
+import { mapGetters } from 'vuex'
+import LocaleDropdown from './LocaleDropdown'
 
-    export default {
-        components: {
-            LocaleDropdown
-        },
+export default {
+  components: {
+    LocaleDropdown
+  },
 
-        data: () => ({
-            appName: window.config.appName
-        }),
+  data: () => ({
+    appName: window.config.appName
+  }),
 
-        computed: mapGetters({
-            user: 'auth/user'
-        }),
+  computed: mapGetters({
+    user: 'auth/user'
+  }),
 
-        methods: {
-            async logout() {
-                // Log out the user.
-                await this.$store.dispatch('auth/logout')
+  methods: {
+    async logout () {
+      // Log out the user.
+      await this.$store.dispatch('auth/logout')
 
-                // Redirect to login.
-                this.$router.push({name: 'login'})
-            }
-        }
+      // Redirect to login.
+      this.$router.push({ name: 'login' })
     }
+  }
+}
 </script>
 
 <style scoped>

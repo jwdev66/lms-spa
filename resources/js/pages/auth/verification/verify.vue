@@ -26,34 +26,34 @@
 </template>
 
 <script>
-    import axios from 'axios'
+import axios from 'axios'
 
-    const qs = (params) => Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
+const qs = (params) => Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
 
-    export default {
-        middleware: 'guest',
+export default {
+  middleware: 'guest',
 
-        metaInfo() {
-            return {title: this.$t('verify_email')}
-        },
+  metaInfo () {
+    return { title: this.$t('verify_email') }
+  },
 
-        async beforeRouteEnter(to, from, next) {
-            try {
-                const {data} = await axios.post(`/api/email/verify/${to.params.id}?${qs(to.query)}`)
+  async beforeRouteEnter (to, from, next) {
+    try {
+      const { data } = await axios.post(`/api/email/verify/${to.params.id}?${qs(to.query)}`)
 
-                next(vm => {
-                    vm.success = data.status
-                })
-            } catch (e) {
-                next(vm => {
-                    vm.error = e.response.data.status
-                })
-            }
-        },
-
-        data: () => ({
-            error: '',
-            success: ''
-        })
+      next(vm => {
+        vm.success = data.status
+      })
+    } catch (e) {
+      next(vm => {
+        vm.error = e.response.data.status
+      })
     }
+  },
+
+  data: () => ({
+    error: '',
+    success: ''
+  })
+}
 </script>

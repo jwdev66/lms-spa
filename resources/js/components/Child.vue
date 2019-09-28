@@ -1,13 +1,13 @@
 <template>
   <transition mode="out-in" name="page">
     <slot>
-      <router-view/>
+      <router-view />
     </slot>
   </transition>
 </template>
 
 <script>
-    export default {
-        name: 'Child'
-    }
+export default {
+  name: 'Child'
+}
 </script>
