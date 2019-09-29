@@ -9,6 +9,11 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::group(['prefix' => 'idea'], function () {
+        Route::resource('ideas', 'API\Idea\IdeaAPIController');
+    });
+
+
 
     Route::patch('settings/profile', 'Settings\ProfileController@update');
     Route::patch('settings/password', 'Settings\PasswordController@update');
@@ -27,4 +32,4 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::post('oauth/{driver}', 'Auth\OAuthController@redirectToProvider');
     Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
 });
-Route::resource('ideas', 'API\Idea\IdeaAPIController');
+

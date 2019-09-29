@@ -72,7 +72,7 @@ class Idea extends Model
     public static $rules = [
         'title' => 'required',
         'description' => 'required',
-        'type' => 'categories enum,Sun,Mon,Tue select,Sun,Mon,Tue',
+        'type' => 'required',
         'slug' => 'required',
         'categories' => 'required',
     ];
