@@ -8,23 +8,26 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-        Schema::defaultStringLength(191);
-    }
-
-    /**
      * Bootstrap any application services.
      *
      * @return void
      */
     public function boot()
     {
-        //
+        if ($this->app->runningUnitTests()) {
+            Schema::defaultStringLength(191);
+        }
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        // if ($this->app->environment('local', 'testing')) {
+        //     $this->app->register(DuskServiceProvider::class);
+        // }
     }
 }

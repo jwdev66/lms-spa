@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,27 +13,27 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 1)
-           ->create()
-           ->each(function ($u) {
-               $adminRole = App\Role::where('name', 'admin')->first();
-               $u->roles()->save($adminRole);
-           });
+        $data = [
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'qazplm123'
+        ];
+        App\User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
 
-        factory(App\User::class, 3)
-            ->create()
-            ->each(function ($u) {
-                $investigatorRole = App\Role::where('name', 'investigator')->first();
-                $u->roles()->save($investigatorRole);
-            });
 
         DB::table('users')->insert([
-            'name'     => Str::random(10),
-            'email'    => 'admin@gmail.com',
-            'password' => bcrypt('qazplm123'),
+            'name' => Str::random(10),
+            'email' => Str::random(10) . '@gmail.com',
+            'password' => bcrypt('password'),
         ]);
-        $user = App\User::where('email', 'admin@gmail.com')->first();
-        $role = App\Role::where('name', 'investigator')->first();
-        $user->roles()->save($role);
+
+
+        // factory(App\User::class, 50)->create()->each(function ($user) {
+        //     $user->ideas()->save(factory(App\Models\Idea\Idea::class)->make());
+        // });
     }
 }

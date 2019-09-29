@@ -1,52 +1,121 @@
-<h1 align="center">Idea.MS</h1>
-<p align="center">IdeaMS is a laravel based information system for organising ideas. Made with ❤️ in Tanzania.</p>
+# Wazo
 
-
+<a href="https://travis-ci.com/alphaolomi/idea"><img alt="Build Status" src="https://img.shields.io/travis/alphaolomi/idea?style=flat-square"></a>
+<a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" alt="Maintained: yes"></a>
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained: yes"></a>
-  <a href="https://travis-ci.com/alphaolomi/idea"><img src="https://travis-ci.com/alphaolomi/idea.svg?branch=master" alt="Build Status"></a>
-  <a href="https://github.styleci.io/repos/194079564"><img src="https://github.styleci.io/repos/194079564/shield?branch=master" alt="Style Status"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
-
-  
+<!-- <img src="https://i.imgur.com/NHFTsGt.png"> -->
 </p>
 
-## Installation
 
-Use the composer package manager [composer](https://pip.pypa.io/en/stable/) to install ideaMS.
+
+## Overview
+A secure, capacity building platform built with Laravel, Vue (SPA). Version 2.0.0
+
+#### ✨Features (Technologies Used)
+
+- Laravel 6.0 
+- Vue + VueRouter + Vuex + VueI18n + ESlint
+- Pages with dynamic import and custom layouts
+- Login, register, email verification and password reset
+- Authentication with JWT
+- Socialite integration
+- Bootstrap 4 + Font Awesome 5
+
+
+#### 🛸Wazo-Engine
+The API is organized around REST.
+
+The API is designed to have:
+- predictable, resource-oriented URLs
+- to use HTTP response codes to indicate API errors
+- to use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients.
+
+> JSON is returned in all responses from the API, including errors.
+
+#### 🚁 Wazo-Web
+
+A frontend baked with Vue 
+
+- Eslint, Javascript Standard codin format used
+
+## 🧩Modules
+
+- [x] Setings module 60%
+- [ ] User module
+- [ ] Idea module
+- [ ] Team module
+
+
+## 🚀Getting started
+
+Composer and Yarn/NPM are required
+
+#### Installation
+
+- Clone repo
+```bash
+git clone https://github.com/alphaolomi/wazo
+
+cd wazo
+
+composer install --no-interaction
+yarn install
+```
+
+- Edit `.env` and set your database connection details
 
 ```bash
-composer install --no-interaction
+cp .env.example .env
 ```
-## TODO
-> Check the Issues 
 
-1. Add Browser testing
-✅composer require --dev laravel/dusk 
-✅php artisan dusk:install
-✅php artisan dusk
-❌php artisan dusk:fails
+- Genrate keys and migrate tables
 
-<!-- Generating Tests -->
-❌php artisan dusk:make LoginTest
+```bash
+php artisan key:generate
+# and 
+php artisan jwt:secret
+php artisan migrate
+```
 
-❌.env.dusk.testing
+#### 🔧 Development
+
+```bash
+# build and watch
+npm run watch
+
+# serve with hot reloading
+npm run hot
+```
 
 
-❌2. Add Broadcast notifications
+#### 🧪Testing
 
+```bash
+vendor/bin/phpunit
+```
 
-❌3. Add 
+#### Production
 
+```bash
+composer install --no-dev
+npm run production
+```
 
+## Changelog
 
-## Author
-Alpha Olomi [hell@alphaolomi.com](mailto:hello@alphaolomi.com)
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Contributing
+## 🤝Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://opensource.org/licenses/MIT) License
+
+## 😎Authors
+
+- **Alpha Olomi** [hello@alphaolomi.com](hello@alphaolomi.com)
+
+## 📃License
+
+[Apache](http://apachelicense.com) License

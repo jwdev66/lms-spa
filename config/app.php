@@ -80,7 +80,11 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locales' => [
+        'en' => 'EN',
+        'zh-CN' => '中文',
+        'es' => 'ES',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +169,22 @@ return [
         /*
          * Package Service Providers...
          */
+        Collective\Html\HtmlServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
+        \InfyOm\CoreUITemplates\CoreUITemplatesServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Yajra\DataTables\HtmlServiceProvider::class,
+        Yajra\DataTables\ButtonsServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Appointer\Swaggervel\SwaggervelServiceProvider::class,
+
+
+        Spatie\Permission\PermissionServiceProvider::class,
+        Brexis\LaravelWorkflow\WorkflowServiceProvider::class,
+        OwenIt\Auditing\AuditingServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -225,6 +245,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Flash' => Laracasts\Flash\Flash::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Workflow' => Brexis\LaravelWorkflow\Facades\WorkflowFacade::class,
 
     ],
 
