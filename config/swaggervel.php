@@ -56,7 +56,7 @@ return [
       | If set to true, automatically regenerates the definitions everytime you open the UI
       |--------------------------------------------------------------------------
     */
-    "auto-generate" => true,
+    'auto-generate' => true,
 
     /*
       |--------------------------------------------------------------------------
@@ -145,6 +145,6 @@ return [
     */
     'middleware' => [
         'docs' => [],
-        'api' => []
-    ]
+        'api' => [],
+    ],
 ];

@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateIdeasTable extends Migration
 {
-
     /**
      * Run the migrations.
      *

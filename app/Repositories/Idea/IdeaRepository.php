@@ -6,8 +6,7 @@ use App\Models\Idea\Idea;
 use App\Repositories\BaseRepository;
 
 /**
- * Class IdeaRepository
- * @package App\Repositories\Idea
+ * Class IdeaRepository.
  * @version September 25, 2019, 9:58 pm UTC
  */
 class IdeaRepository extends BaseRepository
@@ -21,11 +20,11 @@ class IdeaRepository extends BaseRepository
         'description',
         'type',
         'slug',
-        'categories'
+        'categories',
     ];
 
     /**
-     * Return searchable fields
+     * Return searchable fields.
      *
      * @return array
      */
@@ -35,7 +34,7 @@ class IdeaRepository extends BaseRepository
     }
 
     /**
-     * Configure the Model
+     * Configure the Model.
      **/
     public function model()
     {

@@ -179,12 +179,10 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Appointer\Swaggervel\SwaggervelServiceProvider::class,
 
-
         Spatie\Permission\PermissionServiceProvider::class,
         Brexis\LaravelWorkflow\WorkflowServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-
 
         /*
          * Application Service Providers...

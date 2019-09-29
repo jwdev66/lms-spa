@@ -5,7 +5,6 @@ namespace App\Repositories;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
 
-
 abstract class BaseRepository
 {
     /**
@@ -30,17 +29,16 @@ abstract class BaseRepository
     }
 
     /**
-     * Make Model instance
+     * Make Model instance.
      *
      * @return Model
      * @throws \Exception
-     *
      */
     public function makeModel()
     {
         $model = $this->app->make($this->model());
 
-        if (!$model instanceof Model) {
+        if (! $model instanceof Model) {
             throw new \Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }
 
@@ -48,7 +46,7 @@ abstract class BaseRepository
     }
 
     /**
-     * Configure the Model
+     * Configure the Model.
      *
      * @return string
      */
@@ -88,11 +86,11 @@ abstract class BaseRepository
             }
         }
 
-        if (!is_null($skip)) {
+        if (! is_null($skip)) {
             $query->skip($skip);
         }
 
-        if (!is_null($limit)) {
+        if (! is_null($limit)) {
             $query->limit($limit);
         }
 
@@ -100,14 +98,14 @@ abstract class BaseRepository
     }
 
     /**
-     * Get searchable fields array
+     * Get searchable fields array.
      *
      * @return array
      */
     abstract public function getFieldsSearchable();
 
     /**
-     * Retrieve all records with given filter criteria
+     * Retrieve all records with given filter criteria.
      *
      * @param array $search
      * @param int|null $skip
@@ -124,7 +122,7 @@ abstract class BaseRepository
     }
 
     /**
-     * Create model record
+     * Create model record.
      *
      * @param array $input
      *
@@ -140,7 +138,7 @@ abstract class BaseRepository
     }
 
     /**
-     * Find model record for given id
+     * Find model record for given id.
      *
      * @param int $id
      * @param array $columns
@@ -155,7 +153,7 @@ abstract class BaseRepository
     }
 
     /**
-     * Update model record for given id
+     * Update model record for given id.
      *
      * @param array $input
      * @param int $id
@@ -180,7 +178,6 @@ abstract class BaseRepository
      *
      * @return bool|mixed|null
      * @throws \Exception
-     *
      */
     public function delete($id)
     {

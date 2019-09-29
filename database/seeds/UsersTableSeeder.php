@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $data = [
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => 'qazplm123'
+            'password' => 'qazplm123',
         ];
         App\User::create([
             'name' => $data['name'],
@@ -24,13 +24,11 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt($data['password']),
         ]);
 
-
         DB::table('users')->insert([
             'name' => Str::random(10),
-            'email' => Str::random(10) . '@gmail.com',
+            'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
         ]);
-
 
         // factory(App\User::class, 50)->create()->each(function ($user) {
         //     $user->ideas()->save(factory(App\Models\Idea\Idea::class)->make());
