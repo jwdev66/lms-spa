@@ -1,7 +1,4 @@
 build:
-    dependencies:
-            before:
-                - sudo apt-get install -y php-zip
     environment:
         php: '7.3'
         mysql: '5.7'
