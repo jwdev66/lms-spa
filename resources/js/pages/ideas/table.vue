@@ -48,8 +48,6 @@ export default {
 }
 </script>
 
-
-
 <style>
 .VuePagination {
   text-align: center;
@@ -91,7 +89,6 @@ th:nth-child(3) {
   content: "-";
 }
 
-
 .VueTables__search{
   float:left;
 }
@@ -99,7 +96,5 @@ th:nth-child(3) {
 .VueTables__limit{
   float:right;
 }
-
-
 
 </style>
