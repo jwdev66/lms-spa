@@ -37,6 +37,8 @@ The API is designed to have:
 
 A frontend baked with Vue 
 
+- Eslint, Javascript Standard codin format used
+
 ## 🧩Modules
 
 - [x] Setings module 60%

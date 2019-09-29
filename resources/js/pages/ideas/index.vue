@@ -1,18 +1,28 @@
 <template>
   <card :title="$t('ideas')">
-    {{ $t('failed_to_verify_email') }}
-
-    <div class="container">
-      <v-client-table
-        :data="ideas"
-        :columns="columns"
-        :options="options"
-      />
-    </div>
+    <h2>My Cool Idea </h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="idea in ideas" :key="idea.id">
+          <td>{{ idea.id }}</td>
+          <td>{{ idea.title }}</td>
+          <td>asdasd</td>
+        </tr>
+      </tbody>
+    </table>
   </card>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   middleware: 'auth',
 
@@ -20,34 +30,17 @@ export default {
     return { title: this.$t('ideas') }
   },
   data: () => ({
-    columns: ['id', 'user_id', 'title', 'description', 'type'],
-    ideas: [],
-    options: {
-      headings: {
-        id: 'ID',
-        user_id: 'User',
-        title: 'Title',
-        description: 'Description',
-        type: 'Type'
-      },
-      sortable: ['title', 'type'],
-      filterable: ['title', 'type']
-    }
+    ideas: []
   }),
-  created() {
-        this.getIdeas();
-    },
+  created () {
+    this.getIdeas()
+  },
 
   methods: {
     async getIdeas () {
-      // const { data } = await this.ideas.get('/api/ideas')
-      // // Save the token.
-      // await this.$store.dispatch('ideas/fetchIdeas', {
-      //   ideas: data.ideas
-      // })
-      await ideas.get('/api/ideas').then(response => {            
-            this.ideas = response.data;
-        });
+      await axios.get('/api/ideas').then(response => {
+        this.ideas = response.data
+      })
     }
   }
 

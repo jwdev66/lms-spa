@@ -3,7 +3,19 @@ import * as types from '../mutation-types'
 
 // state
 export const state = {
-  ideas: []
+  columns: ['id', 'user_id', 'title', 'description', 'type'],
+  ideas: [],
+  options: {
+    headings: {
+      id: 'ID',
+      user_id: 'User',
+      title: 'Title',
+      description: 'Description',
+      type: 'Type'
+    },
+    sortable: ['title', 'type'],
+    filterable: ['title', 'type']
+  }
 }
 
 // getters

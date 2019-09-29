@@ -14,6 +14,7 @@ export default [
 
   { path: '/home', name: 'home', component: page('home.vue') },
   { path: '/ideas', name: 'ideas', component: page('ideas/index.vue') },
+  { path: '/ideas/table', name: 'table', component: page('ideas/table.vue') },
   {
     path: '/settings',
     component: page('settings/index.vue'),
