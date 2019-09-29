@@ -12,7 +12,7 @@ A secure, capacity building platform built with Laravel, Vue (SPA). Version 2.0.
 
 #### ✨Features (Technologies Used)
 
-- Laravel 6.0 
+- Laravel 6.0
 - Vue + VueRouter + Vuex + VueI18n + ESlint
 - Pages with dynamic import and custom layouts
 - Login, register, email verification and password reset
@@ -33,7 +33,7 @@ The API is designed to have:
 
 #### 🚁 Wazo-Web
 
-A frontend baked with Vue 
+A frontend baked with Vue
 
 - Eslint, Javascript Standard codin format used
 
@@ -73,7 +73,7 @@ cp .env.example .env
 
 ```bash
 php artisan key:generate
-# and 
+# and
 php artisan jwt:secret
 php artisan migrate
 ```
@@ -108,7 +108,7 @@ $ vendor/bin/phpunit
 
 ## Contributing
 
-Pull requests are welcome. Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+Pull requests are welcome. Please see [CONTRIBUTING](./.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](./.github/CODE_OF_CONDUCT.md) for details.
 
 
 ## Security
@@ -121,7 +121,7 @@ If you discover any security related issues, please email [hello@alphaolomi.com]
 - [All Contributors][link-contributors]
 
 ## License
-The Apache 2 License. Please see [License File](LICENSE.md) for more information.
+The Apache 2 License. Please see [License File](LICENSE) for more information.
 
 
 
