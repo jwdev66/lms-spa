@@ -11,12 +11,11 @@ use Illuminate\Http\Request;
 use Response;
 
 /**
- * Class IdeaController
- * @package App\Http\Controllers\API\Idea
+ * Class IdeaController.
  */
 class IdeaAPIController extends AppBaseController
 {
-    /** @var  IdeaRepository */
+    /** @var IdeaRepository */
     private $ideaRepository;
 
     public function __construct(IdeaRepository $ideaRepo)

@@ -18,5 +18,3 @@ Route::get('/debug-sentry', function () {
 Route::get('{path}', function () {
     return view('index');
 })->where('path', '(.*)');
-
-

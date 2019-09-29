@@ -10,19 +10,17 @@ use App\Repositories\User\AvatarRepository;
 use Response;
 
 /**
- * Class AvatarController
- * @package App\Http\Controllers\API\User
+ * Class AvatarController.
  */
 class AvatarAPIController extends AppBaseController
 {
-    /** @var  AvatarRepository */
+    /** @var AvatarRepository */
     private $avatarRepository;
 
     public function __construct(AvatarRepository $avatarRepo)
     {
         $this->avatarRepository = $avatarRepo;
     }
-
 
     // todo fix this file
 
@@ -76,8 +74,6 @@ class AvatarAPIController extends AppBaseController
         $media = $user->getMedia('avatars')->first();
 
         return $this->sendResponse($media->toArray(), 'Avatar saved successfully');
-
-
     }
 
     /**
