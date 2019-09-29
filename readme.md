@@ -1,8 +1,7 @@
 # Wazo
 
-<a href="https://travis-ci.org/cretueusebiu/laravel-vue-spa"><img src="https://travis-ci.org/cretueusebiu/laravel-vue-spa.svg?branch=master" alt="Build Status"></a>
-
-
+<a href="https://travis-ci.com/alphaolomi/idea"><img alt="Build Status" src="https://img.shields.io/travis/alphaolomi/idea?style=flat-square"></a>
+<a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" alt="Maintained: yes"></a>
 <p align="center">
 <!-- <img src="https://i.imgur.com/NHFTsGt.png"> -->
 </p>
@@ -49,22 +48,33 @@ A frontend baked with Vue
 
 ## 🚀Getting started
 
+Composer and Yarn/NPM are required
+
 #### Installation
 
-
 - Clone repo
-```git clone https://github.com/alphaolomi/wazo```
+```bash
+git clone https://github.com/alphaolomi/wazo
+
+cd wazo
+
+composer install --no-interaction
+yarn install
+```
 
 - Edit `.env` and set your database connection details
 
-```cp .env.example .env```
+```bash
+cp .env.example .env
+```
+
+- Genrate keys and migrate tables
 
 ```bash
 php artisan key:generate
 # and 
 php artisan jwt:secret
 php artisan migrate
-npm install
 ```
 
 #### 🔧 Development
@@ -95,8 +105,14 @@ npm run production
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
+## 🤝Contributing
 
-## 😎Author
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+
+## 😎Authors
 
 - **Alpha Olomi** [hello@alphaolomi.com](hello@alphaolomi.com)
 
