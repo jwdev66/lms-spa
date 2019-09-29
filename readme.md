@@ -1,15 +1,13 @@
 # Wazo
 
-<a href="https://travis-ci.com/alphaolomi/wazo"><img alt="Build Status" src="https://img.shields.io/travis/alphaolomi/wazo?style=flat-square"></a>
-<a href="https://github.styleci.io/repos/194079564"><img alt="Style CI" src="https://github.styleci.io/repos/194079564/shield"></a>
-<a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" alt="Maintained: yes"></a>
-<p align="center">
-<!-- <img src="https://i.imgur.com/NHFTsGt.png"> -->
-</p>
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![StyleCI Status][ico-style]][link-styleci]
+[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
+[![Quality Score][ico-code-quality]][link-code-quality]
 
 
 
-## Overview
 A secure, capacity building platform built with Laravel, Vue (SPA). Version 2.0.0
 
 #### ✨Features (Technologies Used)
@@ -53,6 +51,8 @@ Composer and Yarn/NPM are required
 
 #### Installation
 
+Via Git
+
 - Clone repo
 ```bash
 git clone https://github.com/alphaolomi/wazo
@@ -88,13 +88,6 @@ npm run watch
 npm run hot
 ```
 
-
-#### 🧪Testing
-
-```bash
-vendor/bin/phpunit
-```
-
 #### Production
 
 ```bash
@@ -106,17 +99,42 @@ npm run production
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## 🤝Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Testing
 
-Please make sure to update tests as appropriate.
+```bash
+$ vendor/bin/phpunit
+```
+
+## Contributing
+
+Pull requests are welcome. Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
 
 
-## 😎Authors
+## Security
+
+If you discover any security related issues, please email [hello@alphaolomi.com](mailto:hello@alphaolomi.com) instead of using the issue tracker.
+
+## Credits
 
 - **Alpha Olomi** [hello@alphaolomi.com](hello@alphaolomi.com)
+- [All Contributors][link-contributors]
 
-## 📃License
+## License
+The Apache 2 License. Please see [License File](LICENSE.md) for more information.
 
-[Apache](http://apachelicense.com) License
+
+
+[ico-license]: https://img.shields.io/badge/license-Apache2-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/alphaolomi/wazo/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/alphaolomi/wazo.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/alphaolomi/wazo.svg?style=flat-square
+[ico-style]: https://github.styleci.io/repos/194079564/shield
+
+[link-travis]: https://travis-ci.org/alphaolomi/wazo
+[link-scrutinizer]: https://scrutinizer-ci.com/g/alphaolomi/wazo/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/alphaolomi/wazo
+[link-styleci]: https://github.styleci.io/repos/194079564
+
+[link-author]: https://github.com/alphaolomi
+[link-contributors]: ../../contributors
