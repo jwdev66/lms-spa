@@ -30,7 +30,7 @@ class VerificationController extends Controller
      */
     public function verify(Request $request, User $user)
     {
-        if (!URL::hasValidSignature($request)) {
+        if (! URL::hasValidSignature($request)) {
             return response()->json([
                 'status' => trans('verification.invalid'),
             ], 400);

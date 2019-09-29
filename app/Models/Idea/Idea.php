@@ -65,7 +65,7 @@ class Idea extends Model
     use SoftDeletes;
 
     /**
-     * Validation rules
+     * Validation rules.
      *
      * @var array
      */
@@ -74,7 +74,7 @@ class Idea extends Model
         'description' => 'required',
         'type' => 'categories enum,Sun,Mon,Tue select,Sun,Mon,Tue',
         'slug' => 'required',
-        'categories' => 'required'
+        'categories' => 'required',
     ];
     public $table = 'ideas';
     public $fillable = [
@@ -83,7 +83,7 @@ class Idea extends Model
         'description',
         'type',
         'slug',
-        'categories'
+        'categories',
     ];
     protected $dates = ['deleted_at'];
     /**
@@ -98,8 +98,6 @@ class Idea extends Model
         'description' => 'string',
         'type' => 'string',
         'slug' => 'string',
-        'categories' => 'string'
+        'categories' => 'string',
     ];
-
-
 }
