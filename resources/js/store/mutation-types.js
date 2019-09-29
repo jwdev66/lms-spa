@@ -8,3 +8,11 @@ export const UPDATE_USER = 'UPDATE_USER'
 
 // lang.js
 export const SET_LOCALE = 'SET_LOCALE'
+
+// ideas.js
+export const FETCH_IDEAS = 'FETCH_IDEAS'
+export const FETCH_IDEAS_SUCCESS = 'FETCH_IDEAS_SUCCESS'
+export const FETCH_IDEAS_FAILURE = 'FETCH_IDEAS_FAILURE'
+
+// errors.js
+export const FETCH_FAILURE = 'FETCH_FAILURE'

@@ -5,7 +5,9 @@ import Button from './Button'
 import Checkbox from './Checkbox'
 import { AlertError, AlertSuccess, HasError } from 'vform'
 
-// Components that are registered globaly.
+/*
+ Components that are registered globally.
+*/
 [
   Card,
   Child,
