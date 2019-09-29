@@ -1,6 +1,6 @@
 # Wazo
 
-<a href="https://travis-ci.com/alphaolomi/idea"><img alt="Build Status" src="https://img.shields.io/travis/alphaolomi/idea?style=flat-square"></a>
+<a href="https://travis-ci.com/alphaolomi/wazo"><img alt="Build Status" src="https://img.shields.io/travis/alphaolomi/wazo?style=flat-square"></a>
 <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" alt="Maintained: yes"></a>
 <p align="center">
 <!-- <img src="https://i.imgur.com/NHFTsGt.png"> -->
