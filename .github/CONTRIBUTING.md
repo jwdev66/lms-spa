@@ -5,6 +5,13 @@ Contributions are **welcome** and will be fully **credited**.
 We accept contributions via Pull Requests on [Github](https://github.com/:vendor/:package_name).
 
 
+## Issues
+
+- **Feature requests** need to describe as thoroughly as possible and perhaps contain some info on how you would implement it
+- **Bug reports** need to be described in detail what the problem is, how it was triggered and perhaps contain a possible solution
+- **Questions** are free to be asked about the internals of the codebase and about the project
+
+
 ## Pull Requests
 
 - **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - Check the code style with ``$ composer check-style`` and fix it with ``$ composer fix-style``.
@@ -23,6 +30,8 @@ We accept contributions via Pull Requests on [Github](https://github.com/:vendor
 
 
 ## Running Tests
+
+All tests can be run with the following commands.
 
 ``` bash
 $ vendor/bin/phpunit
