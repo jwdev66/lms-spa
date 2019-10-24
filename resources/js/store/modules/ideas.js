@@ -32,7 +32,6 @@ export const mutations = {
 
 // actions
 export const actions = {
-
   async fetchIdeas ({ commit }) {
     try {
       const { data } = await axios.get('/api/ideas')
@@ -42,5 +41,4 @@ export const actions = {
       commit(types.FETCH_IDEAS_FAILURE)
     }
   }
-
 }
