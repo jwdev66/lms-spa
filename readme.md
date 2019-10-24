@@ -1,12 +1,4 @@
-# Wazo
-
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI Status][ico-style]][link-styleci]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-
-
+# Wazo [![Software License][ico-license]](LICENSE.md) [![Build Status][ico-travis]][link-travis] [![StyleCI Status][ico-style]][link-styleci] [![Quality Score][ico-code-quality]][link-code-quality]
 
 A secure, capacity building platform built with Laravel, Vue (SPA). Version 2.0.0
 
@@ -82,10 +74,10 @@ php artisan migrate
 
 ```bash
 # build and watch
-npm run watch
+yarn run watch
 
 # serve with hot reloading
-npm run hot
+yarn run hot
 ```
 
 #### Production
