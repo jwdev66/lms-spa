@@ -7,8 +7,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 // import { } from '@fortawesome/free-regular-svg-icons'
 
-library.add(
-  faUser, faLock, faSignOutAlt, faCog, faGithub
-)
+library.add(faUser, faLock, faSignOutAlt, faCog, faGithub)
 
 Vue.component('fa', FontAwesomeIcon)

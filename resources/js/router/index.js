@@ -12,9 +12,7 @@ Vue.use(Router)
 const globalMiddleware = ['locale', 'check-auth']
 
 // Load middleware modules dynamically.
-const routeMiddleware = resolveMiddleware(
-  require.context('~/middleware', false, /.*\.js$/)
-)
+const routeMiddleware = resolveMiddleware(require.context('~/middleware', false, /.*\.js$/))
 
 const router = createRouter()
 
@@ -52,9 +50,7 @@ async function beforeEach (to, from, next) {
 
   try {
     // Get the matched components and resolve them.
-    components = await resolveComponents(
-      router.getMatchedComponents({ ...to })
-    )
+    components = await resolveComponents(router.getMatchedComponents({ ...to }))
   } catch (error) {
     if (/^Loading( CSS)? chunk (\d)+ failed\./.test(error.message)) {
       window.location.reload(true)
@@ -140,9 +136,11 @@ function callMiddleware (middleware, to, from, next) {
  * @return {Array}
  */
 function resolveComponents (components) {
-  return Promise.all(components.map(component => {
-    return typeof component === 'function' ? component() : component
-  }))
+  return Promise.all(
+    components.map(component => {
+      return typeof component === 'function' ? component() : component
+    })
+  )
 }
 
 /**
@@ -154,13 +152,15 @@ function resolveComponents (components) {
 function getMiddleware (components) {
   const middleware = [...globalMiddleware]
 
-  components.filter(c => c.middleware).forEach(component => {
-    if (Array.isArray(component.middleware)) {
-      middleware.push(...component.middleware)
-    } else {
-      middleware.push(component.middleware)
-    }
-  })
+  components
+    .filter(c => c.middleware)
+    .forEach(component => {
+      if (Array.isArray(component.middleware)) {
+        middleware.push(...component.middleware)
+      } else {
+        middleware.push(component.middleware)
+      }
+    })
 
   return middleware
 }
@@ -198,11 +198,8 @@ function scrollBehavior (to, from, savedPosition) {
  * @return {Object}
  */
 function resolveMiddleware (requireContext) {
-  return requireContext.keys()
-    .map(file =>
-      [file.replace(/(^.\/)|(\.js$)/g, ''), requireContext(file)]
-    )
-    .reduce((guards, [name, guard]) => (
-      { ...guards, [name]: guard.default }
-    ), {})
+  return requireContext
+    .keys()
+    .map(file => [file.replace(/(^.\/)|(\.js$)/g, ''), requireContext(file)])
+    .reduce((guards, [name, guard]) => ({ ...guards, [name]: guard.default }), {})
 }

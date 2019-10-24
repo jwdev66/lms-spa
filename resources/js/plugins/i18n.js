@@ -23,7 +23,7 @@ export async function loadMessages (locale) {
   }
 }
 
-;(async function () {
+(async function () {
   await loadMessages(store.getters['lang/locale'])
 })()
 
