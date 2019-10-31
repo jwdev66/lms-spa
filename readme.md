@@ -1,4 +1,4 @@
-# Wazo [![Software License][ico-license]](LICENSE.md) [![Build Status][ico-travis]][link-travis] [![StyleCI Status][ico-style]][link-styleci] [![Quality Score][ico-code-quality]][link-code-quality]
+# Wazo [![Software License][ico-license]](LICENSE.md) [![Build Status][ico-travis]][link-travis] [![StyleCI Status][ico-style]][link-styleci] [![Quality Score][ico-code-quality]][link-code-quality] [![Github Fork](https://img.shields.io/github/forks/alphaolomi/wazo?logo=github&style=flat-square)](https://github.com/alphaolomi/wazo)
 
 A secure, capacity building platform built with Laravel, Vue (SPA).
 
