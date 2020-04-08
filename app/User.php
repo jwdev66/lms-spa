@@ -4,20 +4,21 @@ namespace App;
 
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-class User extends Authenticatable implements HasMedia, JWTSubject //, MustVerifyEmail
+class User extends Authenticatable implements HasMedia, JWTSubject
 {
     use Notifiable;
     use HasRoles;
     use HasMediaTrait;
+
 
     /**
      * The attributes that are mass assignable.
@@ -45,8 +46,7 @@ class User extends Authenticatable implements HasMedia, JWTSubject //, MustVerif
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
+      /**
      * The accessors to append to the model's array form.
      *
      * @var array
