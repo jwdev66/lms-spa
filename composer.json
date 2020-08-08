@@ -1,28 +1,19 @@
 {
-    "name": "alphao/wazo",
+    "name": "laravel/laravel",
     "type": "project",
-    "description": "A capacity building platform.",
+    "description": "The Laravel Framework.",
     "keywords": [
-        "idea",
-        "wazo"
+        "framework",
+        "laravel"
     ],
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
-        "doctrine/dbal": "^2.10",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^1.0",
+        "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
-        "infyomlabs/coreui-templates": "7.0.x-dev",
-        "laravel/framework": "^7.22",
-        "laravel/socialite": "^4.4",
-        "laravel/tinker": "^2.4",
-        "laravel/ui": "^2.1",
-        "owen-it/laravel-auditing": "^10.0",
-        "sentry/sentry-laravel": "^1.8",
-        "spatie/laravel-medialibrary": "^8.3",
-        "spatie/laravel-permission": "^3.13",
-        "tymon/jwt-auth": "^1.0"
+        "laravel/framework": "^7.24",
+        "laravel/tinker": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
