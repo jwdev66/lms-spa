@@ -16,6 +16,7 @@
         "infyomlabs/adminlte-templates": "7.0.x-dev",
         "infyomlabs/laravel-generator": "7.0.x-dev",
         "jeroennoten/laravel-adminlte": "^3.4",
+        "jimmyjs/laravel-report-generator": "^2.0",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
